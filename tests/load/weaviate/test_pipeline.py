@@ -287,7 +287,7 @@ def test_empty_dataset_allowed() -> None:
     # dataset in load info is empty
     assert info.dataset_name is None
     # check weaviate client props
-    client: WeaviateClient = p._get_destination_client(p.default_schema)
+    client: WeaviateClient = p._get_destination_clients(p.default_schema)[0]
     assert client.dataset_name is None
     assert client.sentinel_class == "DltSentinelClass"
     # also check trace
